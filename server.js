@@ -26,10 +26,6 @@ app.use(
 )
 app.use(bodyParser.json())
 
-app.get("/",(req,res)=>{
-    res.send("home")
-})
-
 app.use(passport.initialize())
 app.use(passport.session())
 
