@@ -4,10 +4,13 @@ const mongoose = require("mongoose")
 const cookieSession = require("cookie-session")
 const passport = require("passport")
 const bodyParser = require("body-parser")
-const authRoutes = require("./routes/authRoutes")
-const apiRoutes = require("./routes/billingRoutes")
 const port= process.env.PORT || 5000
 const keys = require("./config/keys") 
+
+
+const authRoutes = require("./routes/authRoutes")
+const apiRoutes = require("./routes/apiRoutes")
+
 
 mongoose.connect(keys.mongoKey,{
     useUnifiedTopology:true, useNewUrlParser:true

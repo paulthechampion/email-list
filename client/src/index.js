@@ -7,6 +7,14 @@ import reduxThunk from "redux-thunk"
 
 import App from "./components/App"
 import reducers from "./reducers"
+
+//development testing
+import axios from "axios"
+
+window.axios = axios
+
+
+
 //no need to specify index.js in reducers folder
 //by default import will pick the index file
 
