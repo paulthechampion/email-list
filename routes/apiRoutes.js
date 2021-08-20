@@ -5,7 +5,7 @@ const {URL} = require("url")
 const express = require("express")
 const app = express()
 const keys = require("../config/keys")
-const strpie = require("stripe")(keys.stripeSecretKey)
+const stripe = require("stripe")(keys.stripeSecretKey)
 const requireLogin = require("../middlewares/requireLogin")
 const requireCredits = require("../middlewares/reuireCredits")
 const Survey = require("../models/Survey");
@@ -15,7 +15,7 @@ const surveyTemplate = require("../services/emailTemplate/surveyTemplates")
 
 app.post("/stripe",requireLogin,async(req,res)=>{
 
- const charge= await strpie.charges.create({
+ const charge= await stripe.charges.create({
                 amount:500,
                 currency:"usd",
                 description:"$5 for 5 credits",
@@ -29,7 +29,7 @@ app.post("/stripe",requireLogin,async(req,res)=>{
 
 app.get("/surveys", requireLogin,async(req,res)=>{
    const surveys= await Survey.find({_user:req.user.id})
-    .select({recipients:false})
+    // .select({recipients:false})
 
    res.send(surveys)
 })

@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
-}
+body:after{
+  content:"";
+  position:fixed; /* stretch a fixed position to the whole screen */
+  top:0;
+  height:100vh; /* fix for mobile browser address bar appearing disappearing */
+  left:0;
+  right:0;
+}  
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-nav{
+  width: 100%;
+  margin: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo{
+  margin-left: .2em;
+  font-size: 2.5em;
+  position: relative;
+  bottom: .1em;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.pay-btn{
+  outline: none;
+  border: none;
   color: white;
+  padding: 5px 10px;
+  margin: .5em;
+  border-radius: .2em;
+  background-color: #1da799;
+}
+.pay-btn:hover{
+  cursor: pointer;
+  background-color: #1eafa1;
+}
+.survey-div{
+  padding: 1em;
+  margin-top: 2em;
+}
+.btn-flat{
+  margin: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+.survey-label{
+  font-size: 1.5em;
+  color: #ee6e73;
+}
+.review-div{
+  padding: 1em;
+  margin-top: 2em;
 }
 
+.review-label{
+  font-size: 1.5em;
+  color: #ee6e73;
+}
+.review-ans{
+  font-size: 1em;
+}
+.h555{
+  text-align: center;
+  margin-top: 1em;
+}
+
+.empty-survey{
+  font-size: 2em;
+  text-align: center;
+  margin-top: 2em;
+}
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: 0
   }
   to {
-    transform: rotate(360deg);
+    transform:translateY(20px)
+    translateX(5px)
+    rotate(-26deg);
   }
 }
+.fa-hand-point-down{
+  animation-name:  App-logo-spin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  transition: ease-in-out .5s; 
+  color: #ee6e73;
+  
+}
+.card-mine{
+  margin: 2em;
+}
+
+
+@media(min-width :1085px){
+  .logo{
+    margin-left: 2em;
+  }  
+  .login{
+    margin-right: 1em;
+  }
+  .review-div{
+    width: 50%;
+  }
+}  
+
+
+

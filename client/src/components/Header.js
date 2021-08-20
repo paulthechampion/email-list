@@ -12,7 +12,7 @@ class Header extends Component{
                 return
             
             case false:
-                return <li><a href="/auth/google">Login With Google</a></li>
+                return <li className="login"><a href="/auth/google">Login With Google</a></li>
             
             default:
                 return [
@@ -29,12 +29,12 @@ class Header extends Component{
         console.log(this.props)
         return(
             
-    <nav>
+    <nav className="header-nav">
         <div className="nav-wrapper">
             <Link 
             to={this.props.auth ?"/surveys" :"/"} 
-            className="brand-logo">
-            Email List
+            className="logo">
+            Emaily
             </Link>
             <ul id="nav-mobile" className="right">
             {this.renderContent()}

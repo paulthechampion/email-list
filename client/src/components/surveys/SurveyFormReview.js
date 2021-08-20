@@ -9,9 +9,10 @@ import {withRouter} from "react-router-dom"
  function SurveyFormReview({onCancel,formValues,submitSurvey,history}) {
     const reviewFields =_.map(formFields,({name,label})=>{
         return(
-            <div key={name}>
-                <label>{label}</label>
-                <div>
+            <div key={name} className="review-div">
+                
+                <label className="review-label">{label}</label>
+                <div className="review-ans">
                     {formValues[name]}
                 </div>
             </div>
@@ -20,7 +21,7 @@ import {withRouter} from "react-router-dom"
     
     return (
         <div>
-            <h5>Please confirm your entries</h5>
+            <h5 className="h555">Please Confirm Your Entries</h5>
             {reviewFields}
 
             <button className="yellow darken-3 btn-flat white-text"
