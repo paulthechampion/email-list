@@ -3,6 +3,7 @@ import React,{Component} from "react"
 import {reduxForm, Field} from "redux-form"
 import SurveyField from "./SurveyField"
 import {Link} from "react-router-dom"
+import {connect} from "react-redux"
 import validateEmails from "../../utils/validateEmails"
 import formFields from "./formFields"
 
@@ -11,6 +12,7 @@ import formFields from "./formFields"
 
 
 class SurveyForm extends Component{
+   
     renderFields(){
         
             return _.map(formFields, ({label,name})=>{
@@ -24,7 +26,7 @@ class SurveyForm extends Component{
         return(
             <div>
                 <form //props.handleSubmit is provided to us authomatically by the redux-forms below in the export default
-                    onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
+                    onSubmit={this.props.auth?this.props.auth.credits>=1?this.props.handleSubmit(this.props.onSurveySubmit):()=>{alert("You must add credits, the app is in test mode so credit card number is 42424242....... , expiring date is any future date and cvc is any random number, enjoy")}:null}>
                     {this.renderFields()}
 
                     <Link to="/surveys" className="red btn-flat white-text">
@@ -69,8 +71,13 @@ function validate(values){
     return errors;
 }
 
+
+function mapStateToProps({auth}){
+    return {auth}
+}
+
 export default reduxForm({
     validate, //created by redux-forms
     form:"surveyForm",
     destroyOnUnmount:false
-})(SurveyForm)
+})(connect(mapStateToProps)(SurveyForm))
